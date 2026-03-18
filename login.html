@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login / Register – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Account Access</h3>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+      <!-- Login Form -->
+      <div style="flex:1 1 300px;">
+        <h4>Login</h4>
+        <form class="card" style="padding:1rem;">
+          <div class="form-group">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" required />
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+            <div>
+              <input type="checkbox" id="remember" />
+              <label for="remember" style="font-size:0.9rem;">Remember me</label>
+            </div>
+            <a href="#" style="font-size:0.9rem; color: var(--accent);">Forgot password?</a>
+          </div>
+          <button type="button" class="btn" onclick="loginUser()">Login</button>
+          <div id="login-message" style="display:none; margin-top:0.75rem; color: var(--accent); font-weight:600;"></div>
+        </form>
+      </div>
+      <!-- Registration Form -->
+      <div style="flex:1 1 300px;">
+        <h4>Register</h4>
+        <form class="card" style="padding:1rem;">
+          <div class="form-group">
+            <label for="reg-name">Full Name</label>
+            <input id="reg-name" type="text" required />
+          </div>
+          <div class="form-group">
+            <label for="reg-email">Email</label>
+            <input id="reg-email" type="email" required />
+          </div>
+          <div class="form-group">
+            <label for="reg-password">Password</label>
+            <input id="reg-password" type="password" required />
+          </div>
+          <div class="form-group">
+            <label for="reg-confirm">Confirm Password</label>
+            <input id="reg-confirm" type="password" required />
+          </div>
+          <button type="button" class="btn" onclick="registerUser()">Register</button>
+          <div id="register-message" style="display:none; margin-top:0.75rem; color: var(--accent); font-weight:600;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function loginUser() {
+      document.getElementById('login-message').style.display = 'block';
+      document.getElementById('login-message').textContent = 'Logged in (example).';
+    }
+    function registerUser() {
+      const password = document.getElementById('reg-password').value;
+      const confirm = document.getElementById('reg-confirm').value;
+      if (password !== confirm) {
+        document.getElementById('register-message').style.display = 'block';
+        document.getElementById('register-message').style.color = '#ef4444';
+        document.getElementById('register-message').textContent = 'Passwords do not match.';
+        return;
+      }
+      document.getElementById('register-message').style.display = 'block';
+      document.getElementById('register-message').style.color = 'var(--accent)';
+      document.getElementById('register-message').textContent = 'Account created (example).';
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

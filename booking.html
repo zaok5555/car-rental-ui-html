@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Complete Your Booking</h3>
+    <!-- Step Indicator -->
+    <div style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem;">
+      <div id="step-1-indicator" class="btn" style="background-color:var(--accent);">1. Select</div>
+      <div id="step-2-indicator" class="btn" style="background-color:#d1d5db; color:var(--primary);">2. Details</div>
+      <div id="step-3-indicator" class="btn" style="background-color:#d1d5db; color:var(--primary);">3. Review</div>
+    </div>
+
+    <!-- Step 1: Select Car & Dates -->
+    <div id="step-1" class="card" style="padding:1rem; max-width:700px; margin:0 auto;">
+      <h4>Select Car & Dates</h4>
+      <p>Choose your vehicle and specify your rental period.</p>
+      <div class="form-group">
+        <label for="selected-car">Car Model</label>
+        <select id="selected-car">
+          <option>Sedan ($50/day)</option>
+          <option>SUV ($80/day)</option>
+          <option>Van ($70/day)</option>
+          <option>Luxury ($150/day)</option>
+        </select>
+      </div>
+      <div class="form-group" style="display:flex; gap:0.5rem;">
+        <div style="flex:1;">
+          <label for="start-date">Pick‑up Date</label>
+          <input id="start-date" type="date" />
+        </div>
+        <div style="flex:1;">
+          <label for="end-date">Drop‑off Date</label>
+          <input id="end-date" type="date" />
+        </div>
+      </div>
+      <div class="form-group" style="display:flex; gap:0.5rem;">
+        <div style="flex:1;">
+          <label for="start-time">Pick‑up Time</label>
+          <input id="start-time" type="time" />
+        </div>
+        <div style="flex:1;">
+          <label for="end-time">Drop‑off Time</label>
+          <input id="end-time" type="time" />
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <button type="button" class="btn" onclick="nextStep(1)">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Customer Info & Extras -->
+    <div id="step-2" class="card" style="padding:1rem; max-width:700px; margin:0 auto; display:none;">
+      <h4>Customer Information</h4>
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input id="name" type="text" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input id="email" type="email" />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input id="phone" type="tel" />
+      </div>
+      <h4>Extras</h4>
+      <div class="form-group">
+        <input type="checkbox" id="gps" />
+        <label for="gps">GPS Navigation ($5/day)</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="child-seat" />
+        <label for="child-seat">Child Seat ($3/day)</label>
+      </div>
+      <div class="form-group">
+        <input type="checkbox" id="driver" />
+        <label for="driver">Driver Service ($20/day)</label>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+        <button type="button" class="btn" onclick="nextStep(2)">Next</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Review & Confirm -->
+    <div id="step-3" class="card" style="padding:1rem; max-width:700px; margin:0 auto; display:none;">
+      <h4>Review & Confirm</h4>
+      <div id="review-summary" style="margin-bottom:1rem;"></div>
+      <p style="color: var(--text-light);">Please review your details before confirming.</p>
+      <div style="display:flex; justify-content:space-between;">
+        <button type="button" class="btn btn-secondary" onclick="prevStep(3)">Back</button>
+        <button type="button" class="btn" onclick="confirmBooking()">Confirm Booking</button>
+      </div>
+      <div id="confirmation-message" style="display:none; margin-top:1rem; color: var(--accent); font-weight:600;"></div>
+    </div>
+  </section>
+
+  <script>
+    let currentStep = 1;
+    function nextStep(step) {
+      if (step === 1) {
+        // populate review summary later
+      }
+      currentStep = step + 1;
+      updateSteps();
+    }
+    function prevStep(step) {
+      currentStep = step - 1;
+      updateSteps();
+    }
+    function updateSteps() {
+      const step1 = document.getElementById('step-1');
+      const step2 = document.getElementById('step-2');
+      const step3 = document.getElementById('step-3');
+      const i1 = document.getElementById('step-1-indicator');
+      const i2 = document.getElementById('step-2-indicator');
+      const i3 = document.getElementById('step-3-indicator');
+      step1.style.display = currentStep === 1 ? 'block' : 'none';
+      step2.style.display = currentStep === 2 ? 'block' : 'none';
+      step3.style.display = currentStep === 3 ? 'block' : 'none';
+      i1.style.backgroundColor = currentStep === 1 ? 'var(--accent)' : '#d1d5db';
+      i1.style.color = currentStep === 1 ? '#fff' : 'var(--primary)';
+      i2.style.backgroundColor = currentStep === 2 ? 'var(--accent)' : '#d1d5db';
+      i2.style.color = currentStep === 2 ? '#fff' : 'var(--primary)';
+      i3.style.backgroundColor = currentStep === 3 ? 'var(--accent)' : '#d1d5db';
+      i3.style.color = currentStep === 3 ? '#fff' : 'var(--primary)';
+      // populate summary when reaching step 3
+      if (currentStep === 3) {
+        const summary = document.getElementById('review-summary');
+        const car = document.getElementById('selected-car').value;
+        const startDate = document.getElementById('start-date').value;
+        const endDate = document.getElementById('end-date').value;
+        const name = document.getElementById('name').value;
+        const gps = document.getElementById('gps').checked;
+        const child = document.getElementById('child-seat').checked;
+        const driver = document.getElementById('driver').checked;
+        let extras = [];
+        if (gps) extras.push('GPS');
+        if (child) extras.push('Child Seat');
+        if (driver) extras.push('Driver');
+        summary.innerHTML = `<strong>Car:</strong> ${car}<br><strong>Dates:</strong> ${startDate} to ${endDate}<br><strong>Name:</strong> ${name}<br><strong>Extras:</strong> ${extras.join(', ') || 'None'}`;
+      }
+    }
+    function confirmBooking() {
+      document.getElementById('confirmation-message').style.display = 'block';
+      document.getElementById('confirmation-message').textContent = 'Booking confirmed! (example)';
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fleet – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Our Fleet</h3>
+    <p>Browse our range of vehicles and use the filters to narrow down your search.</p>
+    <!-- Filters -->
+    <div class="card" style="padding: 1rem; margin-bottom: 1.5rem;">
+      <div class="form-group" style="display:flex; flex-wrap: wrap; gap: 1rem;">
+        <div style="flex:1; min-width: 150px;">
+          <label for="filter-type">Car Type</label>
+          <select id="filter-type" onchange="filterCars()">
+            <option value="">All</option>
+            <option value="sedan">Sedan</option>
+            <option value="suv">SUV</option>
+            <option value="van">Van</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </div>
+        <div style="flex:1; min-width: 150px;">
+          <label for="filter-seats">Seats</label>
+          <select id="filter-seats" onchange="filterCars()">
+            <option value="">Any</option>
+            <option value="5">5</option>
+            <option value="7">7</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div style="flex:1; min-width: 150px;">
+          <label for="filter-trans">Transmission</label>
+          <select id="filter-trans" onchange="filterCars()">
+            <option value="">Any</option>
+            <option value="auto">Automatic</option>
+            <option value="manual">Manual</option>
+          </select>
+        </div>
+        <div style="flex:1; min-width: 150px;">
+          <label for="filter-fuel">Fuel</label>
+          <select id="filter-fuel" onchange="filterCars()">
+            <option value="">Any</option>
+            <option value="petrol">Petrol</option>
+            <option value="diesel">Diesel</option>
+            <option value="electric">Electric</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <!-- Car listing -->
+    <div class="card-grid" id="car-list">
+      <!-- Card 1 -->
+      <div class="card" data-type="sedan" data-seats="5" data-trans="auto" data-fuel="petrol">
+        <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sedan" />
+        <div class="card-content">
+          <h4>Sedan</h4>
+          <p>Comfortable and efficient, ideal for city travel.</p>
+          <p class="price">$50/day</p>
+          <a href="car-details.html" class="btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Details</a>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="card" data-type="suv" data-seats="7" data-trans="auto" data-fuel="diesel">
+        <img src="https://images.pexels.com/photos/193993/pexels-photo-193993.jpeg?auto=compress&cs=tinysrgb&w=600" alt="SUV" />
+        <div class="card-content">
+          <h4>SUV</h4>
+          <p>Spacious and powerful, suitable for family or off-road trips.</p>
+          <p class="price">$80/day</p>
+          <a href="car-details.html" class="btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Details</a>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="card" data-type="van" data-seats="9" data-trans="manual" data-fuel="diesel">
+        <img src="https://images.pexels.com/photos/8040477/pexels-photo-8040477.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Van" />
+        <div class="card-content">
+          <h4>Van</h4>
+          <p>Large capacity, perfect for groups and corporate transfers.</p>
+          <p class="price">$70/day</p>
+          <a href="car-details.html" class="btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Details</a>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="card" data-type="luxury" data-seats="5" data-trans="auto" data-fuel="petrol">
+        <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Luxury" />
+        <div class="card-content">
+          <h4>Luxury</h4>
+          <p>Premium vehicles for executive travel and special occasions.</p>
+          <p class="price">$150/day</p>
+          <a href="car-details.html" class="btn-secondary" style="display: inline-block; margin-top: 0.5rem;">View Details</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Basic client-side filter: shows/hides cards based on selected criteria
+    function filterCars() {
+      const type = document.getElementById('filter-type').value;
+      const seats = document.getElementById('filter-seats').value;
+      const trans = document.getElementById('filter-trans').value;
+      const fuel = document.getElementById('filter-fuel').value;
+      const cards = document.querySelectorAll('#car-list .card');
+      cards.forEach(card => {
+        const matchType = !type || card.dataset.type === type;
+        const matchSeats = !seats || card.dataset.seats === seats;
+        const matchTrans = !trans || card.dataset.trans === trans;
+        const matchFuel = !fuel || card.dataset.fuel === fuel;
+        if (matchType && matchSeats && matchTrans && matchFuel) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

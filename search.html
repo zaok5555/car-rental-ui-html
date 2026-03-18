@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search & Book – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Search & Book</h3>
+    <p>Enter your travel details to see available cars. All fields are required.</p>
+    <form class="card" style="padding: 1rem; max-width: 650px; margin: 0 auto;">
+      <div class="form-group">
+        <label for="pickup-loc">Pick‑up Location</label>
+        <input id="pickup-loc" type="text" placeholder="City or airport" required />
+      </div>
+      <div class="form-group">
+        <label for="dropoff-loc">Drop‑off Location</label>
+        <input id="dropoff-loc" type="text" placeholder="City or airport" required />
+      </div>
+      <div class="form-group" style="display: flex; gap: 0.5rem;">
+        <div style="flex:1;">
+          <label for="pickup-date-search">Pick‑up Date</label>
+          <input id="pickup-date-search" type="date" required />
+        </div>
+        <div style="flex:1;">
+          <label for="dropoff-date-search">Drop‑off Date</label>
+          <input id="dropoff-date-search" type="date" required />
+        </div>
+      </div>
+      <div class="form-group" style="display: flex; gap: 0.5rem;">
+        <div style="flex:1;">
+          <label for="pickup-time-search">Pick‑up Time</label>
+          <input id="pickup-time-search" type="time" required />
+        </div>
+        <div style="flex:1;">
+          <label for="dropoff-time-search">Drop‑off Time</label>
+          <input id="dropoff-time-search" type="time" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="car-type-search">Car Type</label>
+        <select id="car-type-search">
+          <option>Sedan</option>
+          <option>SUV</option>
+          <option>Van</option>
+          <option>Luxury</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="purpose-search">Purpose</label>
+        <select id="purpose-search">
+          <option>Personal / Daily</option>
+          <option>Monthly</option>
+          <option>Corporate</option>
+        </select>
+      </div>
+      <!-- Example of interactive loading indicator using CSS animation -->
+      <div id="loading-message" style="display:none; margin-bottom: 1rem; color: var(--accent); font-weight:600;">
+        Loading available cars...
+      </div>
+      <div style="text-align: right;">
+        <button type="button" class="btn" onclick="startSearch()">Search Cars</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    // Simple JavaScript to show a loading message when the search button is clicked
+    function startSearch() {
+      const loading = document.getElementById('loading-message');
+      loading.style.display = 'block';
+      setTimeout(() => {
+        loading.textContent = 'No results found (example).';
+      }, 2000);
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

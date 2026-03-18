@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Bookings – Corporate Car Rental</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Additional styles specific to the bookings dashboard */
+      .filter-bar {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .details-row {
+        display: none;
+        background-color: var(--bg-dark);
+      }
+      .details-row td {
+        padding: 1rem;
+      }
+      .table tr:hover:not(.details-row) {
+        background-color: #f3f4f6;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <h1>RealRentCar</h1>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="car-details.html">Details</a>
+        <a href="booking.html">Booking</a>
+        <a href="corporate.html">Corporate</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html">Login</a>
+        <a href="my-bookings.html">My Bookings</a>
+      </div>
+    </nav>
+
+    <!-- My Bookings Section -->
+    <section class="section">
+      <h3>My Bookings</h3>
+      <p>Review and manage your current and past reservations.</p>
+      <div class="filter-bar">
+        <label for="statusFilter">Filter by status:</label>
+        <select id="statusFilter" onchange="filterBookings()">
+          <option value="all">All</option>
+          <option value="pending">Pending</option>
+          <option value="confirmed">Confirmed</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </div>
+      <table class="table" id="bookingsTable">
+        <thead>
+          <tr>
+            <th>Car</th>
+            <th>Pick‑up</th>
+            <th>Drop‑off</th>
+            <th>Status</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Example booking 1 -->
+          <tr data-status="pending" onclick="toggleDetails(this)">
+            <td>Sedan X1</td>
+            <td>Apr 5, 2026</td>
+            <td>Apr 7, 2026</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>$180</td>
+          </tr>
+          <tr class="details-row">
+            <td colspan="5">
+              <strong>Details:</strong><br />
+              Pick‑up at Bangkok Downtown, Apr 5, 2026 10:00 AM<br />
+              Drop‑off at Phitsanulok Branch, Apr 7, 2026 3:00 PM<br />
+              Insurance: Standard<br />
+              Extras: GPS
+            </td>
+          </tr>
+          <!-- Example booking 2 -->
+          <tr data-status="confirmed" onclick="toggleDetails(this)">
+            <td>SUV Q5</td>
+            <td>Mar 20, 2026</td>
+            <td>Mar 25, 2026</td>
+            <td><span class="status completed">Completed</span></td>
+            <td>$450</td>
+          </tr>
+          <tr class="details-row">
+            <td colspan="5">
+              <strong>Details:</strong><br />
+              Pick‑up at Chiang Mai Airport, Mar 20, 2026 9:00 AM<br />
+              Drop‑off at Chiang Mai Airport, Mar 25, 2026 4:00 PM<br />
+              Insurance: Premium<br />
+              Extras: Child seat, Additional driver
+            </td>
+          </tr>
+          <!-- Example booking 3 -->
+          <tr data-status="cancelled" onclick="toggleDetails(this)">
+            <td>Luxury L7</td>
+            <td>Feb 10, 2026</td>
+            <td>Feb 12, 2026</td>
+            <td><span class="status cancelled">Cancelled</span></td>
+            <td>$0</td>
+          </tr>
+          <tr class="details-row">
+            <td colspan="5">
+              <strong>Details:</strong><br />
+              Booking was cancelled by user on Feb 9, 2026.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2026 Car Rental Co. All rights reserved.</p>
+    </footer>
+
+    <!-- Booking dashboard scripts -->
+    <script>
+      // Toggle details row visibility when a booking row is clicked
+      function toggleDetails(row) {
+        // the next sibling is the details row
+        var details = row.nextElementSibling;
+        if (details && details.classList.contains('details-row')) {
+          details.style.display = details.style.display === 'table-row' ? 'none' : 'table-row';
+        }
+      }
+      // Filter bookings by status
+      function filterBookings() {
+        var filter = document.getElementById('statusFilter').value;
+        var rows = document.querySelectorAll('#bookingsTable tbody tr');
+        rows.forEach(function (row) {
+          // skip details rows
+          if (row.classList.contains('details-row')) return;
+          var status = row.getAttribute('data-status');
+          if (filter === 'all' || status === filter) {
+            row.style.display = '';
+            // also show its details row
+            if (row.nextElementSibling && row.nextElementSibling.classList.contains('details-row')) {
+              row.nextElementSibling.style.display = 'none';
+            }
+          } else {
+            row.style.display = 'none';
+            // hide details row
+            if (row.nextElementSibling && row.nextElementSibling.classList.contains('details-row')) {
+              row.nextElementSibling.style.display = 'none';
+            }
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

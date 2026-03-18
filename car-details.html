@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Details – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Vehicle Details</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+      <!-- Image gallery -->
+      <div style="flex: 1 1 300px;">
+        <img id="main-image" src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Sedan" style="width:100%; border-radius:6px;" />
+        <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+          <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg?auto=compress&cs=tinysrgb&w=600" alt="thumb1" style="width:60px; height:40px; cursor:pointer; border-radius:4px;" onclick="changeImage(this.src)" />
+          <img src="https://images.pexels.com/photos/193993/pexels-photo-193993.jpeg?auto=compress&cs=tinysrgb&w=600" alt="thumb2" style="width:60px; height:40px; cursor:pointer; border-radius:4px;" onclick="changeImage(this.src)" />
+          <img src="https://images.pexels.com/photos/8040477/pexels-photo-8040477.jpeg?auto=compress&cs=tinysrgb&w=600" alt="thumb3" style="width:60px; height:40px; cursor:pointer; border-radius:4px;" onclick="changeImage(this.src)" />
+          <img src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&w=600" alt="thumb4" style="width:60px; height:40px; cursor:pointer; border-radius:4px;" onclick="changeImage(this.src)" />
+        </div>
+      </div>
+      <!-- Details -->
+      <div style="flex: 2 1 400px;">
+        <h4 style="margin-top:0;">Sedan</h4>
+        <p class="price">$50/day</p>
+        <p>Comfortable and efficient, ideal for city travel. The Sedan offers a smooth ride with excellent fuel economy and modern safety features.</p>
+        <h4>Specifications</h4>
+        <table class="table" style="margin-bottom:1rem;">
+          <tr><th>Seats</th><td>5</td></tr>
+          <tr><th>Transmission</th><td>Automatic</td></tr>
+          <tr><th>Fuel</th><td>Petrol</td></tr>
+          <tr><th>Engine</th><td>1.8L</td></tr>
+          <tr><th>Air Conditioning</th><td>Yes</td></tr>
+        </table>
+        <h4>Features</h4>
+        <ul style="margin-bottom:1rem; list-style: disc inside; color: var(--text-light);">
+          <li>GPS Navigation</li>
+          <li>Bluetooth Connectivity</li>
+          <li>Child Seat Available</li>
+          <li>ABS & Airbags</li>
+        </ul>
+        <h4>Rental Policy</h4>
+        <p style="margin-bottom: 1rem;">Free cancellation up to 24 hours before pick‑up. Late returns may incur additional charges.</p>
+        <a href="booking.html" class="btn">Reserve Now</a>
+      </div>
+    </div>
+    <h4>FAQ</h4>
+    <p style="margin-bottom:0.5rem; font-weight:600;">Can I cancel my booking?</p>
+    <p style="margin-bottom:1rem; color: var(--text-light);">Yes, you can cancel free of charge up to 24 hours before pick‑up.</p>
+    <p style="margin-bottom:0.5rem; font-weight:600;">Are there any extra fees?</p>
+    <p style="color: var(--text-light);">Fees may apply for late returns, additional drivers or optional extras.</p>
+  </section>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

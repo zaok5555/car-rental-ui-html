@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporate Solutions – RealRentCar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h3>Corporate Car Rental Solutions</h3>
+    <p>Flexible plans and premium services designed for businesses of all sizes.</p>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-content">
+          <h4>Monthly Plan</h4>
+          <p>Ideal for small teams needing regular transportation for short term projects.</p>
+          <p class="price">Starting at $1,200/month</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>Annual Plan</h4>
+          <p>Best value for companies requiring vehicles year‑round with comprehensive support.</p>
+          <p class="price">Starting at $12,000/year</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>VIP Executive</h4>
+          <p>Luxury vehicles with professional chauffeur services for executives and guests.</p>
+          <p class="price">Custom pricing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background-color:var(--bg-dark);">
+    <h3>Contact Our Sales Team</h3>
+    <p>Let us help tailor a plan for your organisation. Provide your details and we will reach out with a personalised offer.</p>
+    <form class="card" style="padding:1rem; max-width:600px; margin:0 auto;">
+      <div class="form-group">
+        <label for="corp-name">Company Name</label>
+        <input id="corp-name" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="corp-contact">Contact Person</label>
+        <input id="corp-contact" type="text" required />
+      </div>
+      <div class="form-group">
+        <label for="corp-email">Email</label>
+        <input id="corp-email" type="email" required />
+      </div>
+      <div class="form-group">
+        <label for="corp-phone">Phone</label>
+        <input id="corp-phone" type="tel" required />
+      </div>
+      <div class="form-group">
+        <label for="corp-message">Message</label>
+        <textarea id="corp-message" rows="3" placeholder="Tell us about your needs"></textarea>
+      </div>
+      <div style="text-align:right;">
+        <button type="button" class="btn" onclick="sendRequest()">Send Request</button>
+      </div>
+      <div id="corp-confirmation" style="display:none; margin-top:1rem; color: var(--accent); font-weight:600;"></div>
+    </form>
+  </section>
+
+  <script>
+    function sendRequest() {
+      // Simulate sending a request and show confirmation message
+      document.getElementById('corp-confirmation').style.display = 'block';
+      document.getElementById('corp-confirmation').textContent = 'Thank you! We will contact you shortly.';
+    }
+  </script>
+
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>

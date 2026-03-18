@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RealRentCar – Corporate Car Rental</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header class="navbar">
+    <h1>RealRentCar</h1>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="search.html">Search</a>
+      <a href="fleet.html">Fleet</a>
+      <a href="car-details.html">Car Details</a>
+      <a href="booking.html">Booking</a>
+      <a href="corporate.html">Corporate</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="login.html">Login</a>
+      <a href="my-bookings.html">My Bookings</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Drive Your Business Forward</h2>
+    <p>Professional car rental solutions tailored for enterprises and executives.</p>
+    <a href="fleet.html" class="cta-button">Explore Fleet</a>
+  </section>
+
+  <!-- Quick Search Panel -->
+  <section class="section" id="quick-search">
+    <h3>Quick Search</h3>
+    <form class="card" style="padding: 1rem; max-width: 600px; margin: 0 auto;">
+      <div class="form-group">
+        <label for="pickup">Pick‑up Location</label>
+        <input id="pickup" type="text" placeholder="City or airport" required />
+      </div>
+      <div class="form-group">
+        <label for="dropoff">Drop‑off Location</label>
+        <input id="dropoff" type="text" placeholder="City or airport" required />
+      </div>
+      <div class="form-group" style="display: flex; gap: 0.5rem;">
+        <div style="flex:1;">
+          <label for="pickup-date">Pick‑up Date</label>
+          <input id="pickup-date" type="date" required />
+        </div>
+        <div style="flex:1;">
+          <label for="dropoff-date">Drop‑off Date</label>
+          <input id="dropoff-date" type="date" required />
+        </div>
+      </div>
+      <div class="form-group" style="display: flex; gap: 0.5rem;">
+        <div style="flex:1;">
+          <label for="pickup-time">Pick‑up Time</label>
+          <input id="pickup-time" type="time" required />
+        </div>
+        <div style="flex:1;">
+          <label for="dropoff-time">Drop‑off Time</label>
+          <input id="dropoff-time" type="time" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="car-type">Car Type</label>
+        <select id="car-type">
+          <option>Sedan</option>
+          <option>SUV</option>
+          <option>Van</option>
+          <option>Luxury</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="purpose">Purpose</label>
+        <select id="purpose">
+          <option>Personal / Daily</option>
+          <option>Monthly</option>
+          <option>Corporate</option>
+        </select>
+      </div>
+      <div style="text-align: right;">
+        <button type="submit" class="btn">Search Cars</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Highlights -->
+  <section class="section" id="highlights">
+    <h3>Why Choose Us</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-content">
+          <h4>Wide Selection</h4>
+          <p>Choose from sedans, SUVs, vans and luxury vehicles to suit every need.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>Corporate Packages</h4>
+          <p>Flexible monthly and annual plans tailored for business clients.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>24/7 Support</h4>
+          <p>Our dedicated team is available around the clock to assist you.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>Reliable Vehicles</h4>
+          <p>All vehicles undergo regular maintenance to ensure safety and comfort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps Section -->
+  <section class="section" id="steps">
+    <h3>How It Works</h3>
+    <div class="card-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+      <div class="card">
+        <div class="card-content">
+          <h4>1. Search</h4>
+          <p>Enter your pick‑up and drop‑off details to find available vehicles.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>2. Select</h4>
+          <p>Choose the vehicle that best suits your travel requirements.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>3. Reserve</h4>
+          <p>Provide driver details and confirm your booking instantly online.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-content">
+          <h4>4. Drive</h4>
+          <p>Pick up your car at the chosen location and enjoy a hassle‑free journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" id="cta">
+    <div style="text-align:center;">
+      <h3>Ready to Hit the Road?</h3>
+      <p>Get a personalised quote for your company or start your reservation now.</p>
+      <a href="corporate.html" class="cta-button" style="margin-right: 1rem;">Corporate Plans</a>
+      <a href="search.html" class="cta-button">Start Booking</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 RealRentCar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
